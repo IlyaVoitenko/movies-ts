@@ -3,7 +3,7 @@ import moviesReducer from "./reducers/movies";
 
 export const store = configureStore({
   reducer: {
-    counter: moviesReducer,
+    movies: moviesReducer,
   },
 });
 

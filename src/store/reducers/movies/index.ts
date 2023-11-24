@@ -3,7 +3,7 @@ import { MovieArray } from "../../../interfaces";
 import { getMovieListThunk } from "../../thunk";
 
 const initialState: MovieArray = {
-  movieList: [],
+  moviesList: [],
 };
 
 const moviesSlice = createSlice({
@@ -11,7 +11,10 @@ const moviesSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder.addCase(getMovieListThunk.fulfilled, (state, action) => {
-      state.movieList = [action.payload];
+      state.moviesList = [...action.payload];
+    });
+    builder.addCase(getMovieListThunk.rejected, (state) => {
+      state.moviesList = [];
     });
   },
   reducers: {},

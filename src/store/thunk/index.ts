@@ -3,9 +3,9 @@ import { getListMovie } from "../../services";
 
 export const getMovieListThunk = createAsyncThunk(
   "users/getMovieList",
-  (_, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const response = getListMovie();
+      const response = await getListMovie();
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
